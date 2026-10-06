@@ -1,6 +1,5 @@
 # Generated output (SyncTeX stays on disk for editor navigation).
 /build/
-*.pdf
 *.aux
 *.log
 *.toc
