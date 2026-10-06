@@ -6,9 +6,9 @@ Assignments use `assignment.tex` with `math-template.sty`.
 
 [中文说明](docs/README.zh-CN.md) · [详细命令指南](USAGE.md)
 
-[Note Template](../Math%20Template/blob/main/notes.pdf)
+[Note Template](./notes.pdf)
 
-[Assignment Template](../Math%20Template/blob/main/assignment.pdf)
+[Assignment Template](./assignment.pdf)
 
 ## Lecture notes
 
