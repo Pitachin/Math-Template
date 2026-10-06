@@ -1,0 +1,117 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{math-template}[2026/09/30 Personal math assignments and notes]
+
+\RequirePackage[margin=1in,headheight=15pt]{geometry}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+\RequirePackage{amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{enumitem}
+\RequirePackage{etoolbox}
+\RequirePackage{fancyhdr}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{theorems,skins,breakable}
+\RequirePackage{hyperref}
+
+\definecolor{MathBlue}{HTML}{24476B}
+\definecolor{MathTint}{HTML}{F2F5F9}
+\definecolor{MathMuted}{HTML}{596574}
+\hypersetup{colorlinks=true,linkcolor=MathBlue,urlcolor=MathBlue,citecolor=MathBlue}
+\urlstyle{same}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*,leftmargin=*,topsep=0.4em,itemsep=0.25em}
+\setlist[itemize]{leftmargin=*,topsep=0.4em,itemsep=0.25em}
+\allowdisplaybreaks[1]
+
+% Running headers; the first page uses the full title block instead.
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\sffamily\StudentName}
+\fancyhead[R]{\small\sffamily\AssignmentTitle}
+\fancyfoot[C]{\small\sffamily\color{MathMuted}\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\fancypagestyle{firstpage}{\fancyhf{}\fancyfoot[C]{\small\sffamily\color{MathMuted}\thepage}\renewcommand{\headrulewidth}{0pt}}
+
+\newcommand{\makeassignmentheader}{%
+  \hypersetup{pdftitle={\AssignmentTitle},pdfauthor={\StudentName}}%
+  \thispagestyle{firstpage}%
+  {\sffamily
+    {\small\color{MathMuted}\CourseName\par}
+    \vspace{0.3em}
+    {\LARGE\bfseries\color{MathBlue}\AssignmentTitle\par}
+    \vspace{0.6em}
+    \begin{minipage}[t]{0.58\linewidth}
+      \textbf{\StudentName}%
+      \ifdefempty{\StudentNumber}{}{\\[2pt]{\small Student number: \StudentNumber}}%
+      \ifdefempty{\TutorialSection}{}{\\[2pt]{\small Tutorial: \TutorialSection}}%
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.38\linewidth}
+      \raggedleft\small \DateLabel: \DueDate
+    \end{minipage}\par
+    \vspace{0.4em}
+    {\color{MathBlue}\hrule height 1pt}
+  }%
+  \vspace{0.9em}
+}
+
+% Override in lecture notes with \renewcommand{\DateLabel}{Date}.
+\providecommand{\DateLabel}{Due}
+
+% Adapted from the supplied assignment template by Soham Chatterjee.
+% Usage: \begin{problem}{Optional title}{unique-key} ... \end{problem}
+\newtcbtheorem{problem}{Problem}{%
+  enhanced,breakable,
+  colback=MathTint,colframe=MathBlue,
+  frame hidden,boxrule=0pt,borderline west={2pt}{0pt}{MathBlue},
+  sharp corners,left=10pt,right=10pt,top=8pt,bottom=8pt,
+  before skip=12pt,after skip=8pt,
+  detach title,before upper={\tcbtitle\par\smallskip},
+  coltitle=MathBlue,fonttitle=\bfseries\sffamily,
+  description font=\mdseries,separator sign={:}
+}{p}
+
+% Group problem boxes as 1(a), 1(b), ...; the next ordinary problem is 2.
+% Keep the existing {title}{key} arguments and p:key references.
+\newenvironment{subproblems}{%
+  \edef\mathparentproblem{\number\numexpr\value{tcb@cnt@problem}+1\relax}%
+  \setcounter{tcb@cnt@problem}{0}%
+  \renewcommand{\thetcb@cnt@problem}{\mathparentproblem(\alph{tcb@cnt@problem})}%
+  \def\theHtcb@cnt@problem{\mathparentproblem.\arabic{tcb@cnt@problem}}%
+}{%
+  \setcounter{tcb@cnt@problem}{\mathparentproblem}%
+}
+
+% Solutions support multiple paragraphs and automatic QED marks.
+% Use \qedhere on the last line of a display to place the QED mark there.
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+\newcommand{\solve}[1]{\begin{solution}#1\end{solution}}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+% Common notation. Starred delimiters auto-size: \norm*{\frac{x}{2}}.
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\set}{\lbrace}{\rbrace}
+\DeclarePairedDelimiter{\inner}{\langle}{\rangle}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\mathop{}\!\mathrm{d}}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\rank}{rank}

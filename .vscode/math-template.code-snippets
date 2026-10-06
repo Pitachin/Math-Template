@@ -1,0 +1,57 @@
+{
+  "Math Template: theorem": {
+    "scope": "latex",
+    "prefix": "mtthm",
+    "body": [
+      "\\\\begin{theorem}",
+      "\t${1:Text.}",
+      "\\\\end{theorem}",
+      "$0"
+    ],
+    "description": "Insert a theorem environment"
+  },
+  "Math Template: definition": {
+    "scope": "latex",
+    "prefix": "mtdef",
+    "body": [
+      "\\\\begin{definition}",
+      "\t${1:Text.}",
+      "\\\\end{definition}",
+      "$0"
+    ],
+    "description": "Insert a definition environment"
+  },
+  "Math Template: proof": {
+    "scope": "latex",
+    "prefix": "mtproof",
+    "body": [
+      "\\\\begin{proof}",
+      "\t${1:Text.}",
+      "\\\\end{proof}",
+      "$0"
+    ],
+    "description": "Insert a proof environment"
+  },
+  "Math Template: solution": {
+    "scope": "latex",
+    "prefix": "mtsol",
+    "body": [
+      "\\\\begin{solution}",
+      "\t${1:Text.}",
+      "\\\\end{solution}",
+      "$0"
+    ],
+    "description": "Insert a solution environment"
+  },
+  "Math Template: problem": {
+    "scope": "latex",
+    "prefix": "mtproblem",
+    "body": [
+      "\\\\begin{problem}{${1:Title}}{${2:key}}",
+      "\t${3:Question.}",
+      "\\\\end{problem}",
+      "$0"
+    ],
+    "description": "Problem box; reference with p:key"
+  }
+}

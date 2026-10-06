@@ -1,0 +1,57 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{math-template}
+
+\newcommand{\StudentName}{Your Name}
+\newcommand{\CourseName}{MATH 101 --- Introduction to Analysis}
+\newcommand{\AssignmentTitle}{Lecture Notes: Sequences}
+\newcommand{\DueDate}{October 15, 2026}
+\newcommand{\StudentNumber}{}
+\newcommand{\TutorialSection}{}
+\renewcommand{\DateLabel}{Date}
+
+\begin{document}
+\makeassignmentheader
+
+\section{Convergence}
+\begin{definition}[Convergence]
+A real sequence $(a_n)$ converges to $L\in\R$ if for every $\eps>0$
+there exists $N\in\N$ such that $n\geq N$ implies $\abs{a_n-L}<\eps$.
+\end{definition}
+
+\begin{example}
+The sequence $a_n=1/n$ converges to zero. Given $\eps>0$, choose
+$N>1/\eps$; then $n\geq N$ implies $1/n<\eps$.
+\end{example}
+
+\begin{theorem}[Uniqueness of limits]\label{thm:unique}
+A convergent real sequence has exactly one limit.
+\end{theorem}
+\begin{proof}
+Suppose $a_n\to L$ and $a_n\to M$ with $L\neq M$.
+Set $\eps=\abs{L-M}/3$. For sufficiently large $n$,
+\[
+  \abs{L-M}\leq\abs{L-a_n}+\abs{a_n-M}
+  <2\eps=\frac23\abs{L-M},
+\]
+a contradiction. Thus $L=M$.
+\end{proof}
+
+\begin{remark}
+Theorem~\ref{thm:unique} justifies writing ``the limit'' of a convergent sequence.
+\end{remark}
+
+\section{A useful consequence}
+\begin{proposition}
+Every convergent real sequence is bounded.
+\end{proposition}
+\begin{proof}
+Suppose $a_n\to L$. Choose $N$ so that $n\geq N$ implies
+$\abs{a_n-L}<1$, and set
+\[
+  B=\max\set{\abs{a_1},\ldots,\abs{a_N},\abs{L}+1}.
+\]
+For $n<N$ the bound $\abs{a_n}\leq B$ follows from the definition of $B$.
+For $n\geq N$, the triangle inequality gives
+$\abs{a_n}\leq\abs{a_n-L}+\abs{L}<\abs{L}+1\leq B$.
+\end{proof}
+\end{document}

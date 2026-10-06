@@ -1,0 +1,56 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{math-template}
+
+% Edit these fields. Empty optional fields are hidden.
+\newcommand{\StudentName}{Your Name}
+\newcommand{\CourseName}{MATH 101 --- Introduction to Analysis}
+\newcommand{\AssignmentTitle}{Assignment 1}
+\newcommand{\DueDate}{October 15, 2026}
+\newcommand{\StudentNumber}{}
+\newcommand{\TutorialSection}{}
+
+\begin{document}
+\makeassignmentheader
+
+\begin{problem}{Triangle inequality}{triangle}
+Show that $\abs{x+y}\leq\abs{x}+\abs{y}$ for all $x,y\in\R$.
+\end{problem}
+\begin{solution}
+Adding $-\abs{x}\leq x\leq\abs{x}$ and
+$-\abs{y}\leq y\leq\abs{y}$ gives
+\[
+  -(\abs{x}+\abs{y})\leq x+y\leq\abs{x}+\abs{y}.
+\]
+The claim follows from the definition of absolute value.
+\end{solution}
+
+% Each box inside this group is numbered 2(a), 2(b), ...
+\begin{subproblems}
+\begin{problem}{A convergent sequence}{limit}
+Prove that $a_n=1/n$ converges to $0$.
+\end{problem}
+\begin{solution}
+Let $\eps>0$. Choose $N\in\N$ with $N>1/\eps$.
+For every $n\geq N$, we have $\abs{a_n-0}=1/n\leq1/N<\eps$.
+Hence $a_n\to0$.
+\end{solution}
+
+\begin{problem}{A shifted sequence}{shift}
+Deduce that $b_n=3+1/n$ converges to $3$.
+\end{problem}
+\begin{solution}
+Since $\abs{b_n-3}=1/n$, the same estimate as in
+Problem~\ref{p:limit} proves the claim.
+\end{solution}
+\end{subproblems}
+
+\begin{problem}{An integral}{integral}
+Evaluate $\int_0^1 x^2\dd x$.
+\end{problem}
+\begin{solution}
+By the fundamental theorem of calculus,
+\[
+  \int_0^1 x^2\dd x=\left[\frac{x^3}{3}\right]_0^1=\frac13.\qedhere
+\]
+\end{solution}
+\end{document}

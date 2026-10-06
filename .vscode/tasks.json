@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build assignment",
+      "type": "process",
+      "command": "latexmk",
+      "args": [
+        "-pdf",
+        "assignment.tex"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build lecture notes",
+      "type": "process",
+      "command": "latexmk",
+      "args": [
+        "-pdf",
+        "notes.tex"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}
