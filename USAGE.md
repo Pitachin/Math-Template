@@ -4,9 +4,9 @@
 `preamble.tex`、`macros.tex`、`letterfonts.tex`。实际宏文件名是
 `macros.tex`，不是 `macro.tex`。作业入口 `assignment.tex` 使用另一套样式。
 
-[笔记模版参考](../Math%20Template/notes.pdf)
+[笔记模版参考](./notes.pdf)
 
-[作业模版参考](../Math%20Template/assignment.pdf)
+[作业模版参考](./assignment.pdf)
 
 ## 1. 主文件和依赖
 
