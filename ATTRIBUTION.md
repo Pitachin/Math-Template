@@ -9,5 +9,7 @@ inspected for this project. No blanket open-source license has therefore been
 assigned to the inherited material. Confirm the upstream license and applicable
 redistribution terms before selecting a project-wide license.
 
-The older downloaded lecture-note files are not required by the public examples
-and are excluded from Git along with the existing personal coursework.
+The lecture-note entry point `notes.tex` uses the inherited `preamble.tex`,
+`macros.tex`, and `letterfonts.tex`, which are included in the repository.
+Their existing source and styling are retained; the upstream licensing status
+above has not been independently resolved.

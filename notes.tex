@@ -1,57 +1,76 @@
-\documentclass[11pt,letterpaper]{article}
-\usepackage{math-template}
+\documentclass[11pt,letterpaper,oneside]{report}
 
-\newcommand{\StudentName}{Your Name}
-\newcommand{\CourseName}{MATH 101 --- Introduction to Analysis}
-\newcommand{\AssignmentTitle}{Lecture Notes: Sequences}
-\newcommand{\DueDate}{October 15, 2026}
-\newcommand{\StudentNumber}{}
-\newcommand{\TutorialSection}{}
-\renewcommand{\DateLabel}{Date}
+% Lecture-note dependencies: packages and boxes, macros, then letter shortcuts.
+\input{preamble.tex}
+\input{macros.tex}
+\input{letterfonts.tex}
+
+\title{Analysis --- Lecture Notes}
+\author{Your Name}
+\date{\today}
+\hypersetup{pdftitle={Analysis --- Lecture Notes},pdfauthor={Your Name}}
 
 \begin{document}
-\makeassignmentheader
+\maketitle
+\tableofcontents
+\clearpage
 
+\chapter{Sequences}
 \section{Convergence}
-\begin{definition}[Convergence]
-A real sequence $(a_n)$ converges to $L\in\R$ if for every $\eps>0$
-there exists $N\in\N$ such that $n\geq N$ implies $\abs{a_n-L}<\eps$.
-\end{definition}
 
-\begin{example}
-The sequence $a_n=1/n$ converges to zero. Given $\eps>0$, choose
-$N>1/\eps$; then $n\geq N$ implies $1/n<\eps$.
-\end{example}
+\dfn[convergence]{Convergence}{
+A sequence $(a_n)_{n\in\bbN}$ in $\bbR$ converges to $L\in\bbR$ if,
+for every $\veps>0$, there exists $N\in\bbN$ such that
+\[
+  n\geq N \quad\Longrightarrow\quad |a_n-L|<\veps.
+\]
+}
 
-\begin{theorem}[Uniqueness of limits]\label{thm:unique}
+\ex[reciprocal]{A convergent sequence}{
+The sequence $a_n=1/n$ converges to zero. Given $\veps>0$, choose
+$N>1/\veps$; then $n\geq N$ implies $|1/n|\leq 1/N<\veps$.
+}
+
+\thm[unique-limit]{Uniqueness of limits}{
 A convergent real sequence has exactly one limit.
-\end{theorem}
+}
 \begin{proof}
 Suppose $a_n\to L$ and $a_n\to M$ with $L\neq M$.
-Set $\eps=\abs{L-M}/3$. For sufficiently large $n$,
+Set $\veps=|L-M|/3$. For sufficiently large $n$,
 \[
-  \abs{L-M}\leq\abs{L-a_n}+\abs{a_n-M}
-  <2\eps=\frac23\abs{L-M},
+  |L-M|\leq |L-a_n|+|a_n-M|
+  <2\veps=\frac23|L-M|,
 \]
 a contradiction. Thus $L=M$.
 \end{proof}
 
-\begin{remark}
-Theorem~\ref{thm:unique} justifies writing ``the limit'' of a convergent sequence.
-\end{remark}
+\rmk[limit-notation]{Notation}{
+Theorem~\ref{th:unique-limit} justifies writing ``the limit'' of a
+convergent sequence. Definition~\ref{def:convergence} gives its meaning.
+}
 
-\section{A useful consequence}
-\begin{proposition}
+\section{Boundedness}
+\lem[bounded]{Convergent sequences are bounded}{
 Every convergent real sequence is bounded.
-\end{proposition}
+}
 \begin{proof}
-Suppose $a_n\to L$. Choose $N$ so that $n\geq N$ implies
-$\abs{a_n-L}<1$, and set
+Suppose $a_n\to L$. Choose $N$ so that $n\geq N$ implies $|a_n-L|<1$,
+and set
 \[
-  B=\max\set{\abs{a_1},\ldots,\abs{a_N},\abs{L}+1}.
+  B=\max\{|a_1|,\ldots,|a_N|,|L|+1\}.
 \]
-For $n<N$ the bound $\abs{a_n}\leq B$ follows from the definition of $B$.
+For $n<N$, the definition of $B$ gives $|a_n|\leq B$.
 For $n\geq N$, the triangle inequality gives
-$\abs{a_n}\leq\abs{a_n-L}+\abs{L}<\abs{L}+1\leq B$.
+$|a_n|\leq |a_n-L|+|L|<1+|L|\leq B$.
 \end{proof}
+
+\cor[unbounded]{A divergence criterion}{
+An unbounded real sequence cannot converge in $\bbR$.
+}
+
+\nt{The commands above use section numbering. Use \texttt{\string\thmc},
+\texttt{\string\dfnc}, and the other chapter variants for chapter numbering.}
+
+% To split your notes into files, replace the sample chapters above with
+% \include{lec} (or your own chapter filenames).
 \end{document}
