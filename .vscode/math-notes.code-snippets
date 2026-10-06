@@ -1,0 +1,205 @@
+{
+  "Math notes: definition": {
+    "scope": "latex",
+    "prefix": "mdef",
+    "body": [
+      "\\\\dfn[${1:key}]{${2:Title}}{",
+      "\t${3:Definition.}",
+      "}",
+      "$0"
+    ],
+    "description": "笔记模板：定义（按 section 编号）"
+  },
+  "Math notes: theorem": {
+    "scope": "latex",
+    "prefix": "mthm",
+    "body": [
+      "\\\\thm[${1:key}]{${2:Title}}{",
+      "\t${3:Statement.}",
+      "}",
+      "$0"
+    ],
+    "description": "笔记模板：定理（按 section 编号）"
+  },
+  "Math notes: example": {
+    "scope": "latex",
+    "prefix": "mex",
+    "body": [
+      "\\\\ex[${1:key}]{${2:Title}}{",
+      "\t${3:Example.}",
+      "}",
+      "$0"
+    ],
+    "description": "笔记模板：例子（按 section 编号）"
+  },
+  "Math notes: corollary": {
+    "scope": "latex",
+    "prefix": "mcor",
+    "body": [
+      "\\\\cor[${1:key}]{${2:Title}}{",
+      "\t${3:Statement.}",
+      "}",
+      "$0"
+    ],
+    "description": "笔记模板：推论（按 section 编号）"
+  },
+  "Math notes: chapter definition": {
+    "scope": "latex",
+    "prefix": "mdefc",
+    "body": [
+      "\\\\dfnc[${1:key}]{${2:Title}}{",
+      "\t${3:Definition.}",
+      "}",
+      "$0"
+    ],
+    "description": "笔记模板：定义（按 chapter 编号）"
+  },
+  "Math notes: chapter theorem": {
+    "scope": "latex",
+    "prefix": "mthmc",
+    "body": [
+      "\\\\thmc[${1:key}]{${2:Title}}{",
+      "\t${3:Statement.}",
+      "}",
+      "$0"
+    ],
+    "description": "笔记模板：定理（按 chapter 编号）"
+  },
+  "Math notes: proof": {
+    "scope": "latex",
+    "prefix": "mproof",
+    "body": [
+      "\\\\begin{proof}",
+      "\t${1:Proof.}",
+      "\\\\end{proof}",
+      "$0"
+    ],
+    "description": "证明，自动添加结束方块"
+  },
+  "Math notes: note": {
+    "scope": "latex",
+    "prefix": "mnote",
+    "body": [
+      "\\\\nt{",
+      "\t${1:Note.}",
+      "}",
+      "$0"
+    ],
+    "description": "笔记模板：提示框"
+  },
+  "Math notes: question and solution": {
+    "scope": "latex",
+    "prefix": "mqs",
+    "body": [
+      "\\\\qs[${1:key}]{${2:Title}}{",
+      "\t${3:Question.}",
+      "}",
+      "\\\\begin{solution}",
+      "\t${4:Solution.}",
+      "\\\\end{solution}",
+      "$0"
+    ],
+    "description": "笔记模板：题目与解答框"
+  },
+  "Math notes: display math": {
+    "scope": "latex",
+    "prefix": "mdisplay",
+    "body": [
+      "\\\\[",
+      "\t${1:formula}",
+      "\\\\]",
+      "$0"
+    ],
+    "description": "无编号独立公式"
+  },
+  "Math notes: aligned equations": {
+    "scope": "latex",
+    "prefix": "malign",
+    "body": [
+      "\\\\begin{align*}",
+      "\t${1:a} &= ${2:b} \\\\\\\\",
+      "\t       &= ${3:c}.",
+      "\\\\end{align*}",
+      "$0"
+    ],
+    "description": "无编号多行对齐公式"
+  },
+  "Math notes: numbered equation": {
+    "scope": "latex",
+    "prefix": "meq",
+    "body": [
+      "\\\\begin{equation}\\\\label{eq:${1:key}}",
+      "\t${2:formula}",
+      "\\\\end{equation}",
+      "$0"
+    ],
+    "description": "带编号与标签的公式"
+  },
+  "Math notes: numbered list": {
+    "scope": "latex",
+    "prefix": "mlist",
+    "body": [
+      "\\\\begin{enumerate}[label=(\\\\alph*)]",
+      "\t\\\\item ${1:First item.}",
+      "\t\\\\item ${2:Second item.}",
+      "\\\\end{enumerate}",
+      "$0"
+    ],
+    "description": "按 (a)、(b) 编号的列表"
+  },
+  "Math notes: matrix": {
+    "scope": "latex",
+    "prefix": "mmat",
+    "body": [
+      "\\\\begin{pmatrix}",
+      "\t${1:a} & ${2:b} \\\\\\\\",
+      "\t${3:c} & ${4:d}",
+      "\\\\end{pmatrix}$0"
+    ],
+    "description": "2×2 矩阵；在数学模式内使用"
+  },
+  "Math notes: lemma": {
+    "scope": "latex",
+    "prefix": "mlem",
+    "body": [
+      "\\\\lem[${1:key}]{${2:Title}}{",
+      "\t${3:Statement.}",
+      "}",
+      "$0"
+    ],
+    "description": "筆記模板：引理（按 section 編號）"
+  },
+  "Math notes: chapter lemma": {
+    "scope": "latex",
+    "prefix": "mlemc",
+    "body": [
+      "\\\\lemc[${1:key}]{${2:Title}}{",
+      "\t${3:Statement.}",
+      "}",
+      "$0"
+    ],
+    "description": "筆記模板：引理（按 chapter 編號）"
+  },
+  "Math notes: remark": {
+    "scope": "latex",
+    "prefix": "mrmk",
+    "body": [
+      "\\\\rmk[${1:key}]{${2:Title}}{",
+      "\t${3:Remark.}",
+      "}",
+      "$0"
+    ],
+    "description": "筆記模板：備註（按 section 編號）"
+  },
+  "Math notes: chapter remark": {
+    "scope": "latex",
+    "prefix": "mrmkc",
+    "body": [
+      "\\\\rmkc[${1:key}]{${2:Title}}{",
+      "\t${3:Remark.}",
+      "}",
+      "$0"
+    ],
+    "description": "筆記模板：備註（按 chapter 編號）"
+  }
+}

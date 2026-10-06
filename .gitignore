@@ -24,12 +24,4 @@
 *~
 
 # Existing personal coursework and legacy downloaded sources: local only.
-/.local-backup/
-/template_My_Assignment.tex
-/analysis_class-note.tex
-/lec.tex
-/lec2.tex
-/preamble.tex
-/macros.tex
-/letterfonts.tex
-/.vscode/math-notes.code-snippets
+

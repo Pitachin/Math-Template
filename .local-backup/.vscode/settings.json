@@ -1,0 +1,44 @@
+{
+  "[latex]": {
+    "editor.wordWrap": "on"
+  },
+  "latex-workshop.latex.tools": [
+    {
+      "name": "project-latexmk",
+      "command": "/Library/TeX/texbin/latexmk",
+      "args": [
+        "-pdf",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {
+        "PATH": "/Library/TeX/texbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+      }
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "Project latexmk (PDF)",
+      "tools": [
+        "project-latexmk"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.latex.outDir": "%DIR%",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.autoClean.run": "never",
+  "latex-workshop.latex.clean.method": "command",
+  "latex-workshop.latex.clean.command": "/Library/TeX/texbin/latexmk",
+  "latex-workshop.latex.clean.args": [
+    "-outdir=%OUTDIR%",
+    "-auxdir=%AUXDIR%",
+    "-c",
+    "%TEX%"
+  ],
+  "latex-workshop.view.pdf.viewer": "tab"
+}

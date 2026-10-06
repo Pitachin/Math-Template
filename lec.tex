@@ -1,0 +1,157 @@
+% !TEX root = analysis_class-note.tex
+\chapter{Sep 30}
+\clearpage
+\section{Sep 30}
+\dfn[archimedean-property]{The Archimedean Property}{
+    An ordered field $\mcF$ has the Archimedean property if, for every $x \in \mcF$, there exists an $n \in \bbN$ such that $x < n$.
+}
+
+\cor[lub-implies-archimedean]{}{
+    If $\mcF$ is an ordered field with the least upper bound property, then $\mcF$ is Archimedean.
+}
+\begin{proof}
+    Suppose, for the sake of contradiction, that $\bbN$ is bounded above in $\mcF$. Since $\mcF$ has the least upper bound property, we can let $\alpha = \sup \bbN$. Then $\alpha \ge n$ for all $n \in \bbN$. Since $n+1 \in \bbN$, we also have $\alpha \ge n+1$, so $\alpha-1 \ge n$ for all $n \in \bbN$. Thus $\alpha-1$ is an upper bound, but $\alpha-1 < \alpha$, contradicting the fact that $\alpha$ is the least upper bound.
+\end{proof}
+
+\lem[density-of-rationals]{}{
+    For all $x,y \in \bbR$ with $x < y$, there exists $q \in \bbQ$ such that $x < q < y$.
+}
+
+\begin{proof}
+    Since $y-x > 0$, we have $\frac{1}{y-x} > 0$. By the Archimedean property, there exists an $n \in \bbN$ such that $\frac{1}{y-x} < n$, or equivalently, $\frac{1}{n} < y-x$.
+
+    Now choose $m \in \bbZ$ such that $m-1 \le nx < m$ (that is, $m = \min\{k \in \bbZ : k > nx\}$). Then
+    \[
+        x < \frac{m}{n} \le x + \frac{1}{n} < y.
+    \]
+    Taking $q = \frac{m}{n} \in \bbQ$ gives the result.
+\end{proof}
+
+\thm[small-reciprocals]{}{
+    For any $\veps > 0$, there exists $n \in \bbN$ such that $0 < \frac{1}{n} < \veps$.
+} 
+\begin{proof}
+    By the Archimedean property, there exists $n \in \bbN$ such that $n > \frac{1}{\veps}$. Hence $0 < \frac{1}{n} < \veps$.
+\end{proof}
+
+\dfn[function-rule]{Functions}{
+    A real-valued function of a real variable is a ``rule'' that assigns a real number to each real number in some set.
+}
+
+\begin{enumerate}[label=(\alph*)]
+    \item A function is denoted by $f$, and $f(x)$ is the value assigned to $x$ by $f$.
+    \item The domain of $f$ is the set of all real numbers to which the rule applies.
+\end{enumerate}
+
+\dfn[function-graph]{}{
+    A real-valued function of a real variable can be represented by a subset $\mcF \subseteq \bbR \times \bbR$ with the following properties:
+    \begin{enumerate}[label=(\alph*)]
+        \item If $(a,b)$ and $(a,c)$ are in $\mcF$, then $b=c$.
+        \item The domain of the function is the set
+        \[
+            D = \{a \in \bbR : (a,b) \in \mcF \text{ for some } b \in \bbR\}.
+        \]
+        By (a), this $b$ is unique for each $a \in D$, and we write $b=f(a)$.
+    \end{enumerate}
+}
+
+
+\section{Oct 2}
+
+\dfn[key]{functions}{
+    A function $f: S \to J$ is a subset \[
+        F \subseteq S \times J = \{ (s,t ) : s \in S, t \in J \}
+    \]
+    s.t. if $(a, b ) \in F$ and $(a,c) \in F$ then $b = c$ we write $f(a) = b$      
+}
+Terminology
+\begin{enumerate}[label=(\alph*)]
+    \item The Domain of $f $ is denoted $Dom(f) $ is defined by \[
+        Dom(F) = \{ a \in S : (a,b) \in F \text{ for some } b \in \bbR \}
+    \]
+     
+    \item The Codomain of $F$ is $J$
+    \item The Range if $f$ is \[
+        Ran(F) = \{ b \in J : (a, b )  \in F \text{ for some } a \in S \}
+    \]
+       
+\end{enumerate}
+
+Some graphs...
+
+\rmk[key]{}{
+    \begin{enumerate}[label=(\alph*)]
+        \item $F$ is injective if, for each $b \in Ran(F)  $  there is a unique $a \in Dom(F )$ s.t $(a, b ) \in F$  
+        \item $F$ is surjective if $Ran(F) = J$
+        \item $F$ is bijective if $F$ is injective and surjective.    
+    \end{enumerate}
+}
+
+\dfn[key]{}{
+    If $f: S \to J$ is a function, then we can always define \[
+        f ^{-1 } = \{ (b , a ) \in J \times S : (a,b) \in F \subseteq S \times J \} 
+    \]
+     
+}
+
+Some graph...
+
+\thm[key]{}{
+    $f ^{-1}$ is a function $\iff $f is injective.
+}
+
+\begin{proof}
+    Need to show if $(b_1, a_1)$ and $(b_1. a_1)$ in $f ^{-1}$ and $b_1 = b_2 \Rightarrow a_1 = a_2$
+    $\iff f(a_1) = f(a_2) \text{ then } a_1 = a_2 \iff f \text{ is injective }  $
+\end{proof}
+Even if $f: S \to J$ is not injective, we can always define the \textbf{inverse image} of a set $B \subseteq J$ as follow, 
+\[
+    f ^{-1} (B) = \{ a \in S : (a, b) \in F \text{ for some } b \in B \}
+\]
+ 
+
+\[
+    F = \{ (a, f(a) ) :a \in Dom(f)\}
+\]
+
+\section{compositions of functions}
+\dfn[key]{compositions}{
+    If $F: J_1 \times J_2$  and $G: J_0 \times J_1$ and function can define $F \circ G: J_0 \times J_2$ by $$f \circ g(a) = f(g(a))$$
+    Also,
+    \[
+        Dom(f \circ g) = \{ a \in Dom(g) : g(a) \in Dom(f) \}
+    \]
+    
+}
+
+Functions whose domain is $\bbN$
+\dfn[key]{}{
+    An infinite sequence $\{ X_n \}_{n \in \bbN} \subseteq J$ is a function $f: \bbN \to T$ with $Dom(f) = \bbN$, i.e. $x_n = f(n)$  
+}
+ 
+Think $X_n = \frac{1 }{n } $ is a sequence in $\bbR$.
+\begin{enumerate}[label=(\alph*)]
+    \item $X_n = sin(n)$ is a sequence in $\bbR$ 
+    \item $X_n = n ^{th }$ digit of $\pi$  
+\end{enumerate}
+We often write $x_1, x_2, x_3, \dots$
+A key Role in Mathematics is played by the notion of a convergent sequence.
+
+\dfn[key]{}{
+    Let $\{ X_n  \}_{n\in \bbN} \subseteq \bbR$ be a sequence of real numbers. We say that $\{ X_n \}$ converges to $L$, and write \[
+        \lim_{n \to \infty} X_n = L
+    \] 
+    For every $\veps > 0$, there is a $N \in \bbN$, s.t. for all $n \ge \bbN$ we have, \[
+        |X_n - L | < \veps
+    \]
+      Say $\{ X_n  \} $ converges if it converges to some limit.
+}
+
+%  \ex[key]{Archimedean}{
+%     $\lim_{n \to \infty} \frac{1 }{n}$.
+%     \[
+
+%     \]
+     
+%  }
+ 
